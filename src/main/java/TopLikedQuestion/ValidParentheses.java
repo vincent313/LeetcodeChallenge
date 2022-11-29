@@ -1,6 +1,7 @@
 package TopLikedQuestion;
 
 import java.util.ArrayList;
+import java.util.Stack;
 
 public class ValidParentheses {
 }
@@ -12,7 +13,7 @@ public class ValidParentheses {
  * 3.when pointer traverse the whole String, and stack is not empty,return false.
  * */
 
-class ValidParenthesesSolution {
+class ValidParenthesesArraylist{
 	public boolean isValid(String s) {
 		ArrayList<Character> arr=new ArrayList<Character>();
 		int size=s.length();
@@ -37,3 +38,29 @@ class ValidParenthesesSolution {
 		return true;
 	}
 }
+
+/**implement by stack*/
+class ValidParenthesesStack {
+	public boolean isValid(String s) {
+		Stack<Character> stack=new Stack<Character>();
+		int size=s.length();
+		for(int i=0;i<size;i++){
+			char c=s.charAt(i);
+			if(c=='('||c=='{'||c=='['){
+				stack.push(c);
+			}else{
+				if(stack.isEmpty()){
+					return false;
+				}
+
+				char c1=stack.pop();
+				if(c1=='('&&c!=')'||c1=='{'&&c!='}'||c1=='['&&c!=']'){
+					return false;
+				}
+			}
+		}
+		if(stack.isEmpty()){return true;}
+		return false;
+	}
+}
+
