@@ -1,4 +1,8 @@
 package TopLikedQuestion;
+
+import java.util.ArrayList;
+import java.util.List;
+
 /**34. Find First and Last Position of Element in Sorted Array
 
  Given an array of integers nums sorted in non-decreasing order, find the starting and ending position of a given target value.
@@ -12,6 +16,7 @@ package TopLikedQuestion;
 public class FindFirstandLastPositionofElementinSortedArray {
 	int[] result=new int[2];
 	boolean isFirstLoop=true;
+
 	public int[] searchRange(int[] nums, int target) {
 		result[0]=-1;
 		result[1]=-1;
