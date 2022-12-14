@@ -11,8 +11,8 @@ public class CombinationSumBFS {
 		CombinationSumBFS cs=new CombinationSumBFS();
 		int[] a={8,7,4,3};
 		List<List<Integer>> list=cs.combinationSum(a,11);
-		System.out.println(list.toString());
-
+	boolean[][] test= new boolean[5][5];
+		System.out.println(test[3][3]);
 	}
 
 	public List<List<Integer>> combinationSum(int[] candidates, int target) {
