@@ -1,5 +1,7 @@
 package TopLikedQuestion;
 
+import java.util.ArrayList;
+import java.util.Arrays;
 import java.util.HashMap;
 import java.util.Map;
 
@@ -19,7 +21,10 @@ import java.util.Map;
  * */
 public class LRUCache {
 
-
+	public static void main(String[] args) {
+		ArrayList<DLinkedNode> test=new ArrayList<>();
+		Arrays.sort(test.toArray());
+	}
 	class DLinkedNode {
 		int key;
 		int value;
