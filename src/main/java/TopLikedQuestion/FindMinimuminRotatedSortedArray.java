@@ -42,17 +42,23 @@ package TopLikedQuestion;
  * */
 public class FindMinimuminRotatedSortedArray {
 	public int findMin(int[] nums) {
-	int l = 0;
-	int r = nums.length - 1;
-	int m;
-	while (l < r) {
-		m = (l + r) / 2;
-		if (nums[m] < nums[r]) {
-			r=m;
-		} else {
-			l=m+1;
-		}
+		if(nums.length==1){return nums[0];}
+		if(nums[0]<nums[nums.length-1]){return nums[0];}
+
+		return getMin(nums,0,nums.length-1);
 	}
-	return nums[l];
-}
+
+	private int getMin(int[] nums,int left,int right){
+
+		if(right==left){return nums[left];}
+		if(right-left==1){
+			return nums[left]>nums[right]?nums[right]:nums[left];
+		}
+		int mid=(left+right)/2;
+		int result=0;
+		System.out.println(nums[mid]);
+		if(nums[mid]>nums[0]){result= getMin(nums,mid+1,right);}
+		else if(nums[mid]<nums[0]){result= getMin(nums,left,mid);}
+		return result;
+	}
 }
