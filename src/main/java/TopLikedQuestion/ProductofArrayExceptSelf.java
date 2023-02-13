@@ -92,3 +92,30 @@ public class ProductofArrayExceptSelf {
 		return result;
 	}
 }
+
+class ProductofArrayExceptSelf2 {
+	public int[] productExceptSelf(int[] nums) {
+		int size=nums.length;
+		int[] result=new int[size];
+		if(size==2){
+			result[0]=nums[1];
+			result[1]=nums[0];
+			return result;
+		}
+
+
+		result[size-1]=nums[size-1];
+		for(int i=size-2;i>=1;i--){
+			result[i]=result[i+1]*nums[i];
+		}
+		result[0]=result[1];
+		int temp=nums[0];
+		for(int i=1;i<size-1;i++){
+			result[i]=temp*result[i+1];
+			temp=temp*nums[i];
+		}
+
+		result[size-1]=temp;
+		return result;
+	}
+}
