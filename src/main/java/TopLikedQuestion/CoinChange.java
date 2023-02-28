@@ -42,6 +42,8 @@ import java.util.HashMap;
  * 1 <= coins[i] <= 231 - 1
  * 0 <= amount <= 104
  * */
+
+// top down
 public class CoinChange {
 	public int coinChange(int[] coins, int amount) {
 		if(amount==0){return 0;}
@@ -84,3 +86,35 @@ public class CoinChange {
 			return -1;}
 	}
 }
+/**
+ * Bottom up
+ *   public int coinChange(int[] coins, int amount) {
+ *         if(amount==0){return 0;}
+ *         int[] memo=new int[amount+1];
+ *         for(int i=0;i<memo.length;i++){memo[i]=-1;}
+ *         for(int i=1;i<memo.length;i++){
+ *              for(int x:coins){
+ *                  dp(coins,memo,i,x);
+ *                 }
+ *             }
+ *         return memo[amount];
+ *
+ *     }
+ *     private void dp(int[] coins,int [] memo,int target, int coinsValue){
+ *         if(target==coinsValue){
+ *             memo[target]=1;
+ *             return;
+ *             }
+ *
+ *         if(target>coinsValue){
+ *             int previous=memo[target-coinsValue];
+ *             int current=memo[target];
+ *             if(previous==-1){return;}
+ *             if(current==-1){
+ *                 memo[target]=previous+1;
+ *                 return;
+ *             }
+ *             if(previous+1<current){memo[target]=previous+1;}
+ *         }
+ *     }
+ * */
